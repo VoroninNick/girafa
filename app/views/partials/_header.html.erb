@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Дитяча йога | Cтудія дитячої йоги "Жирафа <%= page_title %></title>
+    <link href="/favicon.ico" rel="shortcut icon" />
+    <%= yield :html_head %>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <meta name="keywords" content="<%=current_page.keywords%>" />
+    <meta name="description" content="<%=current_page.description%>" />
+    <!--[if lt IE 8]>
+      <style type="text/css">
+		#wrapper {display:table;height:100%}
+      </style>
+    <![endif]-->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body class="demo-2">
+    <%= cms_toolbar %>
+    <div id="wrapper">
+      <div id="head">
+        <div class="container_12">
+          <div class="grid_3 alpha">
+            <%= link_to_if current_page.path != "/", image_tag("logo.png", :class => "web-logo"), "/" %>
+          </div>
+          <div class="grid_8 push_1 omega">
+            <%= render_menu :from_top=>0, :depth=>2 %>
+
+          </div>
+        </div>
+      </div>

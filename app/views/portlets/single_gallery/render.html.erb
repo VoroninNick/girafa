@@ -1,0 +1,31 @@
+<div class="article clearfix">
+  <div class="grid_3 alpha">
+    <% @gallery.photos.first(1).each do |image| %>
+      <%= image_tag(image.url(:medium), :class => "gallery-item-big", :style => "width:100%;") %>
+    <% end %>
+  </div>
+  <div class="grid_9 omega">
+    <h2><%= @gallery.name %></h2>
+    <p><%= @gallery.brief %></p>
+  </div>
+  <div class="grid_12 alpha">&nbsp;</div>
+  <div class="grid_3 alpha">&nbsp;</div>
+  <div class="grid_9 omega"><p style="margin-top: 15px;"><%= @gallery.description %><p></div>
+  <% if ! @gallery.video? %>
+  <div class="grid_12 alpha">&nbsp;</div>
+  <% else %>
+  <div class="grid_3 alpha">&nbsp;</div>
+  <div class="grid_6" style="margin-top: 15px;margin-bottom: 15px;">
+    <object width="640" height="360"><param name="movie" value="http://www.youtube.com/v/<%= @gallery.video %>?version=3&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/<%= @gallery.video %>?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="640" height="360" allowscriptaccess="always" allowfullscreen="true" wmode="opaque"></embed></object>
+    <h3 style="width:360px;margin-top: 25px; float:right; margin-right:10%;"><i>"<%= @gallery.video_brief %>"</i></h3>
+  </div>
+  <div class="grid_3 omega">&nbsp;</div>
+  <% end %>
+  <div class="grid_12 alpha">
+    <% @gallery.photos.each do |image| %>
+    	<div class="grid_3 <%= cycle("alpha", "", "", "omega") %>" style="margin-top: 3%;">
+          <%= link_to image_tag(image.url(:medium), :style => "width:100% !important;"), image.url(:fancybox), :class => "gallery-item-big fancybox", :rel => "gallery_view" %> 
+      </div>
+    <% end %>
+  </div>
+</div>

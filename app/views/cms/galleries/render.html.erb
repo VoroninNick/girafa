@@ -1,0 +1,7 @@
+
+<p><b>Name:</b> <%= @content_block.name %></p><br>
+<p><b>Brief:</b> <%= @content_block.brief %></p><br>
+<p><b>Video:</b> <iframe width="640" height="360" src="http://www.youtube.com/embed/<%= @content_block.video %>" frameborder="0" allowfullscreen></iframe></p><br>
+<p><b>Video Brief:</b> <%= @content_block.video_brief %></p><br>
+<p><b>Description:</b> <%= @content_block.description %></p><br>
+<p><b>Attachments:</b> <%= attachment_viewer @content_block %></p>

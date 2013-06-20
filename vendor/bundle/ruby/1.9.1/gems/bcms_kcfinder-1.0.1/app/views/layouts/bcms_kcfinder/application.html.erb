@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BcmsKcfinder</title>
+  <%= stylesheet_link_tag "bcms_kcfinder/application", :media => "all" %>
+  <%= javascript_include_tag "bcms_kcfinder/application" %>
+  <%= csrf_meta_tags %>
+
+  <script type="text/javascript">
+      // Request specific
+      browser.type = '<%= params[:type] %>';
+
+      // Global config
+
+      browser.version = "2.51";
+      browser.support.chromeFrame = false;
+      browser.support.zip = true;
+      browser.support.check4Update = false;
+      browser.lang = "en";
+      browser.theme = "oxygen";
+      browser.access = {"files":{"upload":true, "delete":true, "copy":true, "move":true, "rename":true}, "dirs":{"create":true, "delete":true, "rename":true}};
+      browser.dir = "browser_dir";
+      browser.uploadURL = "upload_dir";
+      browser.thumbsURL = browser.uploadURL + "/.thumbs";
+      browser.opener.CKEditor = {};
+      browser.opener.CKEditor.funcNum = 2;
+      browser.cms = "";
+      // Custom settings for cookies
+      _.kuki.domain = "";  // Unsure if these are necessary. Setting only seems to break setting cookies correctly. (i.e. localhost)
+      _.kuki.path = "";    // Unsure if these are necessary. Setting only seems to break setting cookies correctly. (i.e. /)
+      _.kuki.prefix = "KCFINDER_";
+      $(document).ready(function () {
+          browser.resize();
+          browser.init();
+          $('#all').css('visibility', 'visible');
+      });
+      $(window).resize(browser.resize);
+  </script>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

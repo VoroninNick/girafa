@@ -1,0 +1,48 @@
+<%= content_for :html_head do %>
+  <style type="text/css">
+    div.field {
+      margin: 10px 0;
+      font-size: 14px !important;
+      line-height: 25px !important;
+    }
+    div.field div.label {
+      display: inline;
+      font-weight: bold;
+    }
+    div.field div.value {
+      display: inline;
+    }
+  </style>
+<% end %>
+
+<%= content_for :functions do %>
+  <%= link_to span_tag("List All"), email_messages_path, :class => "button" %>
+<% end %>
+
+<% @page_title = @toolbar_title = "Email Message '#{@message.subject}'" %>
+<div class="field">
+  <div class="label">Отправленно в:</div> 
+  <div class="value"><%= time_on_date(@message.delivered_at) %></div>
+</div>
+<% unless @message.content_type.blank? %>
+  <div class="field">
+    <div class="label">Content-Type:</div> 
+    <div class="value"><%=h @message.content_type %></div>  
+  </div>
+<% end %>
+<div class="field">
+  <div class="label">Имя:</div> 
+  <div class="value"><%=h @message.name %></div>
+</div>
+<div class="field">
+  <div class="label">Електронная почта:</div> 
+  <div class="value"><a href="mail-to:<%=h @message.email_c %>"><%=h @message.email_c %></a> </div>
+</div>
+<div class="field">
+  <div class="label">Телефон:</div> 
+  <div class="value"><%=h @message.phone %></div>
+</div>
+<div class="field">
+  <div class="label">Сообщение:</div> 
+  <div class="value"><%=h @message.message %></div>
+</div>

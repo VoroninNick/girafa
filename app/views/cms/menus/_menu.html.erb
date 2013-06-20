@@ -1,0 +1,15 @@
+<div id="<%= css_id %>" class="<%= css_class %>">
+<% unless items.empty?
+%>  <ul>
+<% items.each_with_index do |item, i|
+      %><%= render :partial => "/cms/menus/menu_item", :object => item, :locals => { :depth => 1, :position => i + 1, :item_count => items.length }
+      %><% end 
+%>  </ul>
+<% end
+%>
+<div class="<%= "sub_#{css_class}" %>">
+<% menu_items(:show_all_siblings => true).each do |item| %>
+          <%= content_tag "div", item[:children].try(:map) { |c| link_to c[:name], c[:url], c[:class => "on"] }.try(:join).try(:html_safe), :id => "sub_#{item[:id]}", :class => "here_dude_#{item[:id]}"  %>
+<% end %>
+</div>
+</div>

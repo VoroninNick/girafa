@@ -1,0 +1,29 @@
+<div class="email-page-portlet">
+  <%= form_for @email_message, :url => handler_path(@portlet, "deliver") do |f| %>
+    <%= hidden_field_tag :email_page_portlet_url, @email_page_portlet_url %>
+    <%= f.cms_error_messages %>
+<div class="grid_4 alpha">
+<p>
+      <%= f.label :name %>
+      <%= f.text_field :name, :placeholder => "name", :style => "color: #E8A713;" %>
+</p>
+<p>
+      <%= f.label :email %>
+      <%= f.text_field :recipients, :placeholder => "name", :style => "color: #E8A713;" %>
+</p>
+<p>
+      <%= f.label :phone %>
+      <%= f.text_field :phone, :placeholder => "name", :style => "color: #E8A713;" %>
+</p>
+</div>
+<div class="grid_8 omega" style="margin-top: 10px;">
+<p>
+      
+      <%= f.text_area :message, :size => "50x3", :placeholder => "name", :style => "color: #E8A713; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-weight: normal;" %>
+</p>
+<p>
+      <%= submit_tag "Відправити" %>
+</p>
+</div>
+  <% end %>
+</div>

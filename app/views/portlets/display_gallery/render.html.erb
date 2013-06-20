@@ -1,0 +1,21 @@
+<% @galleries.each do |item| %>
+<div class="article clearfix grid_12"> 
+  <div class="grid_3 alpha">
+  	<% item.photos.first(1).each do |image| %>     
+      <%= link_to image_tag(image.url(:medium), :class => "gallery-item-big", :style => "width: 100%;"), "/galleries/#{item.id}" %>   
+    <% end %>
+  </div>  
+  <div class="grid_9 omega" style="margin-top: -6px;">
+    <h2 style="margin-left: 1%;"><%= link_to(item.name, "/galleries/#{item.id}") %></h2>
+    <p style="margin-left: 1%; height: 90px;"><%= item.brief %></p>
+    <div class="grid_12 alpha">
+      <% item.photos.last(6).each do |mini| %>
+    		<div class="grid_1"><%= image_tag(mini.url(:mini), :style => "width: 120%;") %></div>
+    	<% end %>
+    	<div class="grid_4 omega" style="margin-top: 3.8%;">
+    	<%= link_to("Переглянути детальніше", "/galleries/#{item.id}", :style => "") %>
+    	</div>
+    </div> 
+  </div> 
+</div>
+<% end %>
