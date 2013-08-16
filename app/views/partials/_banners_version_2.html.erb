@@ -7,41 +7,7 @@
     height: 405px;
   }
 </style>
-<script type="text/javascript">
-
-    </script>
-<div id="slide-me-up" class="clearfix ">
-  <div id="slider" class="sl-slider-wrapper ">
-    <div class="sl-slider">
-
-          <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
-            <div class="sl-slide-inner">
-              <div class="bg-img bg-img-1"></div>
-              <div class="item-description" id="banner-1">
-                <p>Спочатку було дитинство, коли кожен з нас був геніальним.</p>
-                <small>М.Кузьмин</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
-            <div class="sl-slide-inner">
-              <div class="bg-img bg-img-2"></div>
-              <div class="item-description" id="banner-2">
-                <p>Вчителі відкривають двері. Входиш ти сам.</p>
-                <small>Китайська приказка</small>
-              </div>
-            </div>
-          </div>
-        </div><!-- /sl-slider -->
-
-  </div><!-- /slider-wrapper -->
-  <nav id="nav-dots" class="nav-dots">
-          <span class="nav-dot-current"></span>
-          <span></span>
-        </nav>
-</div>
-
+<script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js" type="text/javascript" charset="utf-8" async defer></script>
 <script type="text/javascript">
 
 $(function() {
@@ -50,6 +16,22 @@ $(function() {
 
           var $nav = $( '#nav-dots > span' ),
             slitslider = $( '#slider' ).slitslider( {
+              // transitions speed
+              speed : 600,
+              // if true the item's slices will also animate the opacity value
+              optOpacity : false,
+              // amount (%) to translate both slices - adjust as necessary
+              translateFactor : 250,
+              // maximum possible angle
+              maxAngle : 25,
+              // maximum possible scale
+              maxScale : 3,
+              // slideshow on / off
+              autoplay : true,
+              // keyboard navigation
+              keyboard : false,
+              // time between transitions
+              interval : 30000,
               onBeforeChange : function( slide, pos ) {
 
                 $nav.removeClass( 'nav-dot-current' );
@@ -79,6 +61,7 @@ $(function() {
                   }
 
                   slitslider.jump( i + 1 );
+                  slitslider.play;
                   return false;
 
                 } );
@@ -96,4 +79,37 @@ $(function() {
 
 
 </script>
+<div id="slide-me-up" class="clearfix ">
+  <div id="slider" class="sl-slider-wrapper ">
+    <div class="sl-slider">
+
+          <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-1"></div>
+              <div class="item-description" id="banner-1">
+                <p>Успіх залежить від того, хто ви є, а не від того, що ви робите.</p>
+                <small>Далай лама</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-2"></div>
+              <div class="item-description" id="banner-2">
+                <p>Діти більше подібні на свій час, ніж на своіх батьків.</p>
+                <small></small>
+              </div>
+            </div>
+          </div>
+        </div><!-- /sl-slider -->
+
+  </div><!-- /slider-wrapper -->
+  <nav id="nav-dots" class="nav-dots">
+          <span class="nav-dot-current"></span>
+          <span></span>
+        </nav>
+</div>
+
+
 <div class="clearfix" style="height: 50px;"></div>

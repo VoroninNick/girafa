@@ -442,16 +442,17 @@ html { height: 100%; }
   background: url('banner-quote-bg.png') no-repeat;
   float: left;
   height: 302px;
-  left: 50%;
+  left: 53%;
   position: relative;
   text-align: center;
-  top: 35%;
+  top: 37%;
   width: 340px;
 }
 
 .item-description p{
   color: #8f4005;
   float: left;
+  font-family: 'Georgia', serif;
   font-size: 22px;
   font-style: italic;
   left: 73px;
